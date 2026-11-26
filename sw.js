@@ -1,4 +1,4 @@
-const CACHE_NAME = 'private-vault-offline-v1';
+const CACHE_NAME = 'private-vault-offline-v2';
 const ASSETS = ['./', './index.html', './payload.enc.json', './manifest.json'];
 
 self.addEventListener('install', (ev) => {
