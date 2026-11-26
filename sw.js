@@ -1,4 +1,4 @@
-const CACHE_NAME = 'private-vault-offline-v2';
+const CACHE_NAME = 'private-vault-offline-v3';
 const ASSETS = ['./', './index.html', './payload.enc.json', './manifest.json'];
 
 self.addEventListener('install', (ev) => {
@@ -13,6 +13,7 @@ self.addEventListener('activate', (ev) => {
 
 self.addEventListener('fetch', (ev) => {
   if (ev.request.method !== 'GET') return;
+  if (new URL(ev.request.url).origin !== self.location.origin) return;
   ev.respondWith(
     fetch(ev.request).then((resp) => {
       if (resp && resp.status === 200 && resp.type === 'basic') {
